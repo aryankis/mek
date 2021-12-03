@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-427599821/android.flutter_local_notifications.iml" filepath="$PROJECT_DIR$/.idea/modules/-427599821/android.flutter_local_notifications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2056132630/android.flutter_native_timezone.iml" filepath="$PROJECT_DIR$/.idea/modules/2056132630/android.flutter_native_timezone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1428991091/android.fluttertoast.iml" filepath="$PROJECT_DIR$/.idea/modules/1428991091/android.fluttertoast.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1152020402/android.path_provider.iml" filepath="$PROJECT_DIR$/.idea/modules/-1152020402/android.path_provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/237103583/android.shared_preferences.iml" filepath="$PROJECT_DIR$/.idea/modules/237103583/android.shared_preferences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1015483707/android.sqflite.iml" filepath="$PROJECT_DIR$/.idea/modules/1015483707/android.sqflite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1465007493/android.url_launcher.iml" filepath="$PROJECT_DIR$/.idea/modules/-1465007493/android.url_launcher.iml" />
+    </modules>
+  </component>
+</project>
