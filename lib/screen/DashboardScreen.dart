@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:mek/helpers/GlobalVariables.dart' as globals;
 import 'package:mek/helpers/GlobalVariables.dart';
@@ -9,7 +9,7 @@ import 'Confirm.dart';
 import 'HomeScreen.dart';
 import '../helpers/Database_Helper.dart';
 
-/*
+
 void bh(context) async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile) {
@@ -47,7 +47,7 @@ void bh(context) async {
         });
   }
 }
-*/
+
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -76,7 +76,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     // checkKeys();
     checkKey();
     // setTimer();
-    //bh(context);
+    bh(context);
   }
 
   navigationPage() async {

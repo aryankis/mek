@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-
 import 'dart:convert';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -48,7 +47,7 @@ class _SettingState extends State<Setting> {
   DateTime selectDateTime = DateTime.now();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
-
+  bool dateColor = false;
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController studyNumber_controller = new TextEditingController();
   TextEditingController dob_controller = new TextEditingController();
@@ -84,7 +83,7 @@ class _SettingState extends State<Setting> {
     super.initState();
     _configureLocalTimeZone();
     _requestPermissions();
-    _cancelAllNotifications();
+    //_cancelAllNotifications();
 
 
     var initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/app_logo');
@@ -194,9 +193,7 @@ class _SettingState extends State<Setting> {
     print(scheduledDate);
     if (scheduledDate.isBefore(now)) {
       scheduledDate = scheduledDate.add(const Duration(days: 1));
-
     }
-
     return scheduledDate;
   }
 
@@ -251,6 +248,7 @@ class _SettingState extends State<Setting> {
               android: AndroidNotificationDetails(
                   '101', 'your channel name', 'your channel description')),
           androidAllowWhileIdle: true,
+
           );
     }
   }
@@ -358,11 +356,12 @@ class _SettingState extends State<Setting> {
                             value: _reminder,
                             onChanged: (value) {
                               setState(() {
+                                dateColor = !dateColor;
                                 _reminder = value;
                               });
                               // setReminderAndSnooze();
 
-                              if (value) {
+                              if (_reminder) {
                                 _withoutzonedScheduleNotification();
                               //  ReminderNotification();
                               }
@@ -381,28 +380,34 @@ class _SettingState extends State<Setting> {
                                   fontSize: 16, fontWeight: FontWeight.w600)),
                           TextButton(
                               onPressed: () {
-                                DatePicker.showTime12hPicker(context,
-                                    showTitleActions: true,
-                                    onChanged: (date) {
-                                      print('change $date in time zone ' +
-                                          date.timeZoneOffset.inHours.toString());
-                                    }, onConfirm: (date) {
-                                      print('confirm $date');
-                                      setState(() {
-                                        selectDateTime = date;
-                                        selectedTime = DateFormat('jm').format(date);
-                                        _snooze = false;
-                                        _reminder = false;
+                                if(_reminder || _snooze){
+                                  DatePicker.showTime12hPicker(context,
+                                      showTitleActions: true,
+                                      onChanged: (date) {
+                                        print('change $date in time zone ' +
+                                            date.timeZoneOffset.inHours.toString());
+                                      }, onConfirm: (date) {
+                                        print('confirm $date');
+                                        setState(() {
+                                          selectDateTime = date;
+                                          selectedTime = DateFormat('jm').format(date);
+                                          dateColor = true;
+                                        });
+                                        if (_reminder) {
+                                          _withoutzonedScheduleNotification();
+                                          //  ReminderNotification();
+                                        }else if(_snooze){
+                                          _zonedScheduleNotification();
+                                        }else{
+                                          _zonedScheduleNotification();
+                                        }
+                                      }, currentTime: selectDateTime);
+                                }
 
-                                      });
-
-                                      // setReminderAndSnooze();
-                                    //  _zonedScheduleNotification();
-                                    }, currentTime: selectDateTime);
                               },
                               child: Text(
                                 selectedTime,
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: dateColor?Colors.black:Colors.grey),
                               )),
                         ],
                       ),
@@ -420,6 +425,7 @@ class _SettingState extends State<Setting> {
                             onChanged: (value) {
                               setState(() {
                                 _snooze = value;
+                                dateColor = !dateColor;
                               });
                               if(_snooze){
                                 _zonedScheduleNotification();
