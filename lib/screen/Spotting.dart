@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mek/drawer/Drawer.dart';
-import 'package:mek/screen/Onlypain.dart';
-import 'package:mek/screen/Pads.dart';
+import 'package:mek/screen/only_pain.dart';
+import 'package:mek/screen/pads.dart';
 import 'package:localstorage/localstorage.dart';
 import '../helpers/Database_Helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -123,7 +123,6 @@ class _SpotttingState extends State<Spotting> {
       spot5 = int.parse(this.ques5);
     }
 
-
   }
 
   // receive data from the FirstScreen as a parameter
@@ -156,7 +155,6 @@ class _SpotttingState extends State<Spotting> {
             ques6: ques6,
             ques7: ques7,
             ques8: ques8,
-
           ),
         ));
   }
@@ -260,7 +258,7 @@ class _SpotttingState extends State<Spotting> {
                                       color: Color.fromRGBO(255, 216, 188, 1.0),
                                       borderRadius: BorderRadius.circular(15)),
                                   child: Text(
-                                    '''Is vandaag de eerste dag van de menstruatie?''',
+                                    'Is vandaag de eerste dag van de menstruatie?',
                                     style: TextStyle(fontSize: 18),
                                   ),
                                 ),

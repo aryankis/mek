@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mek/helpers/GlobalVariables.dart' as globals;
+import 'package:mek/helpers/global_variables.dart' as globals;
 
 class Tampons extends StatefulWidget {
   _TamponsState createState() => _TamponsState();

@@ -3,25 +3,25 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:mek/screen/DashboardScreen.dart';
-import 'package:mek/helpers/GlobalVariables.dart' as globals;
-import 'package:mek/screen/Onlypain.dart';
-import 'package:mek/screen/Pads.dart';
-import 'package:mek/screen/Setting4.dart';
-import 'package:mek/screen/Spotting.dart';
-import 'package:mek/screen/addvalue.dart';
+import 'package:mek/screen/dashboard_screen.dart';
+import 'package:mek/helpers/global_variables.dart' as globals;
+import 'package:mek/screen/only_pain.dart';
+import 'package:mek/screen/pads.dart';
+import 'package:mek/screen/setting4.dart';
+import 'package:mek/screen/spotting.dart';
+import 'package:mek/screen/add_value.dart';
 import 'package:mek/screen/legenda.dart';
 import 'package:mek/screen/login.dart';
 import 'package:localstorage/localstorage.dart';
-import 'screen/AfterCalendar.dart';
-import 'screen/Confirm.dart';
-import 'screen/Contact.dart';
-import 'screen/Explain.dart';
-import 'drawer/Menu.dart';
+import 'screen/after_calendar.dart';
+import 'screen/confirm.dart';
+import 'screen/contact.dart';
+import 'screen/explain.dart';
+import 'drawer/menu.dart';
 import 'screen/Setting.dart';
-import 'screen/Tampons.dart';
+import 'screen/tampons.dart';
 import 'helpers/database_helper.dart';
-import 'screen/HomeScreen.dart';
+import 'screen/home_screen.dart';
 import 'screen/faq.dart';
 
 
@@ -55,7 +55,6 @@ class _MyAppState extends State<MyApp>{
         initialRoute: '/',
         debugShowCheckedModeBanner: false,
         routes: {
-
           '/home': (BuildContext context) => new HomeScreen(),
           '/afterCalender': (BuildContext context) => new AfterCalender(),
           '/contact': (BuildContext context) => new Contact(),
@@ -80,15 +79,10 @@ class _MyAppState extends State<MyApp>{
           appBarTheme: AppBarTheme(
             iconTheme: IconThemeData(color: Colors.black),
           ),
-
-          // Define the default Font Family
           fontFamily: 'Poppins',
-          // Define the default TextTheme. Use this to specify the default
-          // text styling for headlines, titles, bodies of text, and more.
         ),
         home: new SplashScreen(),
         localizationsDelegates: [
-          // ... app-specific localization delegate[s] here
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           EasyLocalizationDelegate(

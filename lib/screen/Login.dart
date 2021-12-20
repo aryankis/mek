@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:mek/helpers/GlobalVariables.dart';
+import 'package:mek/helpers/global_variables.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../helpers/Database_Helper.dart';
@@ -128,7 +128,7 @@ class LoginState extends State<Login> {
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
             leading: SizedBox(),
-            title: Text('LOGIN'),
+            title: Text('LOGIN',style:TextStyle(color: Colors.black,)),
             backgroundColor: Colors.white,
             centerTitle: true,
           ),

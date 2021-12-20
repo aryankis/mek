@@ -9,8 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'package:mek/drawer/Bottom_Navigation.dart';
-import 'package:mek/helpers/GlobalVariables.dart';
+import 'package:mek/drawer/bottom_navigation.dart';
+
+import 'package:mek/helpers/global_variables.dart';
 import 'package:mek/helpers/Database_Helper.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:timezone/data/latest.dart' as tz;
@@ -240,7 +241,7 @@ class _SettingState extends State<Setting> {
   Future<void> _withoutzonedScheduleNotification() async {
     if (_reminder) {
       await flutterLocalNotificationsPlugin.schedule(
-          0,
+        createUniqueId(),
           'Reminder',
           'Herinnering\n Vergeet u vandaag niet uw dagboek bij te houden?',
         _withoutsnoozenextInstanceOfTime(),
@@ -255,7 +256,7 @@ class _SettingState extends State<Setting> {
   Future<void> _zonedScheduleNotification() async {
     if(_snooze){
       await flutterLocalNotificationsPlugin.zonedSchedule(
-          0,
+          createUniqueId(),
           'Reminder',
           'Herinnering\n Vergeet u vandaag niet uw dagboek bij te houden?',
           _nextInstanceOfTime(),
@@ -270,6 +271,9 @@ class _SettingState extends State<Setting> {
 
 
   }
+   int createUniqueId() {
+   return DateTime.now().millisecondsSinceEpoch.remainder(100000);
+ }
 
 
   @override
@@ -418,12 +422,16 @@ class _SettingState extends State<Setting> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text("Snooze",
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                           CupertinoSwitch(
                             value: _snooze,
                             onChanged: (value) {
                               setState(() {
+                                if(_reminder){
+                                  dateColor= dateColor;
+                                }else{
+                                  dateColor= !dateColor;
+                                }
                                 _snooze = value;
                                 dateColor = !dateColor;
                               });

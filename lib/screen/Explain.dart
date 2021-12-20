@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mek/drawer/Bottom_Navigation.dart';
+import 'package:mek/drawer/bottom_navigation.dart';
+
 
 class Explain extends StatefulWidget {
   @override
@@ -23,21 +24,20 @@ class _ExplainState extends State<Explain> {
 
         ),
         body: Container(
-          margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+          margin: EdgeInsets.fromLTRB(5, 20, 5, 10),
           child: ListView(
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                     padding: const EdgeInsets.all(8.0),
                       child: const Text(
                         'Uitleg over de app',
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
-                    ),
+
                   ),
                   Container(
                     child: Text(

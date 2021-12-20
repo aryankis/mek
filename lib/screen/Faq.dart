@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:mek/drawer/Bottom_Navigation.dart';
-import 'package:mek/helpers/GlobalVariables.dart';
+import 'package:mek/drawer/bottom_navigation.dart';
+
+import 'package:mek/helpers/global_variables.dart';
 var dateInfo;
 var monthInfo;
 List months = [
